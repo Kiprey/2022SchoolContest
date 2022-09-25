@@ -1,0 +1,9 @@
+FROM ubuntu:20.04
+COPY --chown=root:10000 ./flag /
+RUN mkdir /home/ctf && chown root:10000 /home/ctf
+COPY --chown=root:10000 pwn /home/ctf/
+RUN groupadd -g 10000 ctf && useradd -N -u 10000 -g 10000 ctf && chmod 770 /home/ctf && chmod 440 /flag
+USER 10000:10000
+WORKDIR /home/ctf
+ENTRYPOINT [ "/home/ctf/pwn" ]
+
