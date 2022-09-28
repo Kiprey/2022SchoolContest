@@ -28,7 +28,7 @@ int main () {
     my_init();
 
     printf("You: I, a newbie, even if I dies newbly, I won't call any of your function!\n");
-    printf("Kiprey: OK, so, what do you want to say ?");
+    printf("Kiprey: OK, so, what do you want to say ?\n");
     read(0, buf, 0x100);
     printf("You: %s", buf);
 

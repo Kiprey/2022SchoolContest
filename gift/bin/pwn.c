@@ -29,13 +29,12 @@ int main () {
             "is the most desirable thing for any hacker.\n");
     printf("Now it's a gift for you.\n");    
     printf("However, I don't want you to get it so easy. :)\n");    
+    printf("Input your shellcode: \n");    
     
     memset(shellcode, '\xf4', sizeof(shellcode));
     size_t size = read(0, shellcode, sizeof(shellcode));
-    if(shellcode[size - 1] == '\n')
-        size--;
     for(size_t i = 0; i < size; i++) {
-        if(!isalnum(shellcode[i])) {
+        if(shellcode[i] == '\0') {
             error("Bad character is detected!");
         }
     }
